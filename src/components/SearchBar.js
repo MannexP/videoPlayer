@@ -3,17 +3,15 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "" };
 
+    onInputChange = event => {
+        this.setState({term: event.target.value});
 
-  onInputChange = (event) => {
+    };
 
-  this.setState({ term: event.target.value});
-
-  };
-
-  onFormSubmit = (event) => {
+  onFormSubmit = event => {
    event.preventDefault();
 
-//    TODO; make sure twe call callback from parent component
+    this.props.onFormSubmit(this.state.term)
   };
 
   render() {
